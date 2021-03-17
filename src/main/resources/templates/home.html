@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Waste Collection Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body >
+    <div class="bordas-neon" >
+        <div class="titulo">Eletronic Waste</div>
+        <section>
+            <strong class="introducao">
+                O eletronic waste é um sistema simples e
+                objetivo, onde sua função é indicar para o
+                usuário o ponto de coleta mais próximo de
+                sua localização, bastando inserir seu cep
+                e o tipo de lixo que deseja descartar
+            </strong>
+        </section>
+        <div class="avancar">
+            <a class="button" th:href="@{/coletaSeletiva/buscar}"> <strong>Avançar</strong></a>
+        </div>        
+    </div>
+</body>
+</html>

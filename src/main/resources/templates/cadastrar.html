@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Waste Collection Buscar</title>
+<!--    <link rel="stylesheet" href="../static/css/style.css">-->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body >
+<div>
+    <div class="titulo">Eletronic Waste</div>
+    <section>
+        <strong class="introducao">
+            Cadastro de local de coleta
+        </strong>
+    </section>
+    <div class="container">
+        <form method="post" class="form" th:action="@{/coletaSeletiva/inserirLocal}" th:object="${PontoColeta}">
+            <br>
+            <label for="nome"><strong>nome do local*</strong></label>
+            <br>
+            <input id="nome" required type="text" th:field="${PontoColeta.nomeLocal}" >
+            <br>
+            <label for="tipoLixo"><strong>Tipo de lixo*:</strong></label>
+            <br>
+            <select id="tipoLixo" required th:field="${PontoColeta.tipoLixo}">
+                <option value="Vidro">Vidro</option>
+                <option value="Plástico">Plástico</option>
+                <option value="Papel">Papel</option>
+                <option value="Metal">Metal</option>
+                <option value="Eletrônico">Eletrônico</option>
+                <option value="Orgânico">Orgânico</option>
+                <option value="Químico">Químico</option>
+            </select>
+            <br>
+            <label for="cep"><strong>CEP do local*</strong></label>
+            <br>
+            <input id="cep" required type="text" maxlength="8" placeholder="00000-000" th:field="${PontoColeta.cep}" >
+            <br>
+            <label for="telefone"><strong>Telefone do local*</strong></label>
+            <br>
+            <input id="telefone" required type="text" placeholder="(00)00000-0000" th:field="${PontoColeta.contato}" >
+            <div class="avancar-form">
+                <button type="submit" class="button"> <strong>Inserir</strong></button>
+            </div>
+        </form>
+    </div>   
+
+    <div class="avancar">
+        <a class="button" th:href="@{/coletaSeletiva/home}"> <strong>Cancelar</strong></a>
+    </div>
+
+</div>
+</body>
+</html>

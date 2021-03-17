@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Waste Collection Home</title>
+<!--       <link rel="stylesheet" href="../static/css/style.css">-->
+     <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body >
+<div class="bordas-neon" >
+    <div class="titulo" style="font-size: 1em">Eletronic Waste</div>
+    <section>
+        <strong class="introducao">
+            Ponto de coleta mais próximo:
+            <p th:text="${nomeLocal}"></p>
+        </strong>
+    </section>
+
+    <div th:if="${naoEncontrou}" class="titulo" style="font-size: 3em">Nenhum local próximo encontrado</div>
+
+    <div th:unless="${naoEncontrou}" class="mapa">
+        <iframe th:src="${mapa}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <div class="avancar">
+        <a class="button" th:href="@{/coletaSeletiva/home}"> <strong>Voltar</strong></a>
+    </div>
+</div>
+</body>
+</html>

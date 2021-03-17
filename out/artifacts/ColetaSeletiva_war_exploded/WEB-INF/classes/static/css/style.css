@@ -1,0 +1,7 @@
+.bordas-luminosas {
+    float: left;
+    width: 200px;
+    border-right: 6px solid #e8fdfe;
+    border-left: 10px solid #e8fdfe;
+    background-color: #000000;
+}

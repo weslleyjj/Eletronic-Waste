@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+body {
+    background: #111;
+}
+
+section{
+    text-align: center;
+    font-size: 1.5em;
+    font-style: normal;  
+    margin: 0 auto;
+    width: 50%;
+}
+
+.titulo {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-family: 'Bangers', cursive;
+    text-align: center;
+    font-size: 4.5em;
+    color: #eafffd;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 50px #175c63, 0px 0px 50px #175c63;
+}
+
+.introducao{
+    color: white;
+    font-family: sans-serif;
+}
+
+.avancar{
+    text-align: end;
+    font-size: 1.5em;
+    font-style: normal;  
+    margin-top: 1em;
+    margin-left: 10em;
+    width: 50%;
+}
+
+.button {
+    background-color: #3dcfc1;
+    border: none;
+    color: white;
+    font-size: large;
+    padding: 10px 40px;
+    text-align: center;
+    display: inline-block;
+    margin: 15px 2px;
+    cursor: pointer;
+    border-radius: 30px;
+    font-family: Noto Sans;
+  }
+
+  .avancar-form{
+      text-align: end;
+  }
+
+.bordas-neon {
+    align-content: center;
+    width: 80%;
+    border-right: 10px solid #e8fdfe;
+    border-left: 10px solid #e8fdfe;
+    margin-left: 10%;
+}
+/*CSS para form de buscar e cadastrar*/
+
+.container {
+    width: 500px;
+    clear: both;
+    color: white;
+    margin: auto;
+}
+  
+.container input, select {
+    width: 50%;
+    clear: both;
+    margin: 1em;
+}
+
+/* Tela de resultado */
+
+.mapa{
+    width: 50%;
+    clear: both;
+    margin: auto;
+}
