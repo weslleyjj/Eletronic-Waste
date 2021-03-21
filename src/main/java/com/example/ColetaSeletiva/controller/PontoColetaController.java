@@ -11,6 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Objects;
 
+
+/**
+ * Controlador que irá receber as requisições do usuário
+ * */
+
 @Controller
 @RequestMapping("/coletaSeletiva")
 public class PontoColetaController {
@@ -18,11 +23,18 @@ public class PontoColetaController {
     @Autowired
     private PontoColetaService service;
 
+    /**
+     * @return página inicial do sistema
+     * */
     @GetMapping("/home")
     public String paginaInicial(){
         return "/home";
     }
 
+
+    /**
+     * @return Retorna a página de busca, para ser preenchida com os requisitos do usuário
+     * */
     @GetMapping("/buscar")
     public ModelAndView buscartipoLixo(){
         ModelAndView mv = new ModelAndView();
@@ -32,6 +44,10 @@ public class PontoColetaController {
         return mv;
     }
 
+
+    /**
+     * @return Página que irá possuir o formulário de cadastramento de um novo local
+     * */
     @GetMapping("/cadastrar")
     public ModelAndView cadastrarLocal(){
         ModelAndView mv = new ModelAndView();
@@ -40,12 +56,16 @@ public class PontoColetaController {
         return mv;
     }
 
+    /**
+     * @return controlador que irá receber o local cadastrado pelo usuário e inserir no banco
+     * */
     @PostMapping("/inserirLocal")
     public ModelAndView inserirLocal(PontoColeta local){
         ModelAndView mv = new ModelAndView();
 
         try{
             service.inserir(local);
+            //Caso salve com sucesso irá direcionar para a página inicial
             mv.setViewName("/home");
         }catch (Exception e){
             e.printStackTrace();
@@ -54,13 +74,20 @@ public class PontoColetaController {
         return mv;
     }
 
+    /**
+     * @return Processa os dados de filtro que o usuário inseriu e faz o processamento do local mais próximo
+     * */
     @GetMapping("/resultado")
     public ModelAndView buscarLocal(PontoColeta localDeBusca){
         ModelAndView mv = new ModelAndView();
         PontoColeta proximo = service.findColetaMaisProxima(localDeBusca);
 
         if(!Objects.isNull(proximo)){
+
+            //Passa a url do mapa do google com o CEP do local mais próximo encontrado
             String mapa = "https://www.google.com.br/maps?q=" + proximo.getCep() + ",%20Brasil&output=embed";
+
+            //Adição das variáveis que o thymeleaf irá processar no html
             mv.addObject("nomeLocal", proximo.getNomeLocal());
             mv.addObject("mapa", mapa);
             mv.addObject("naoEncontrou", false);
@@ -68,7 +95,7 @@ public class PontoColetaController {
             mv.addObject("nomeLocal", "Nenhum ponto nas proximidades");
             mv.addObject("naoEncontrou", true);
         }
-
+        // Definindo qual html será a página de retorno
         mv.setViewName("/resultado");
         return mv;
     }

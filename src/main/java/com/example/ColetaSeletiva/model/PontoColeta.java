@@ -2,7 +2,9 @@ package com.example.ColetaSeletiva.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+/**
+ * Classe que representa um documento no banco de dados MongoDB para que o spring processe e transforme em possíveis dados no banco
+ * */
 @Document(collection = "Ponto_coleta")
 public class PontoColeta {
 
