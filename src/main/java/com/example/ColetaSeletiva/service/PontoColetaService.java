@@ -55,8 +55,6 @@ public class PontoColetaService{
 
         int nivelDeProximidade = -1;
 
-        System.out.println(cep.substring(0,5));
-        System.out.println(cepDeBusca.substring(0,5));
         if(cep.substring(0,5).equals(cepDeBusca.substring(0,5))){
             int sufixoAtual = Integer.parseInt(cep.substring(5,8));
             int sufixoBusca = Integer.parseInt(cepDeBusca.substring(5,8));
